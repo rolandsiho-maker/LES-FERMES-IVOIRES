@@ -306,7 +306,7 @@
 
     .video-container {
       position: relative;
-      padding-bottom: 56.25%; /* Ratio 16:9 */
+      padding-bottom: 56.25%;
       height: 0;
       overflow: hidden;
       margin: 15px 0;
@@ -343,7 +343,7 @@
 <div class="container">
   <div class="content-wrapper">
     
-    <!-- REÇU (intact) -->
+    <!-- REÇU -->
     <div class="receipt">
       <div class="header">
         <h1>LES FERMES IVOIRES</h1>
@@ -469,7 +469,6 @@
             (Qualité Premium)
           </p>
           
-          <!-- Zone vidéo YouTube -->
           <div class="video-container">
             <iframe id="conservationVideo" width="100%" height="315" src="https://www.youtube.com/embed/g6b7aGmtS9k?si=u6R80Yw0xtiJCstn" frameborder="0" allow="clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
@@ -497,7 +496,6 @@
             Suivez ces <strong>3 secrets de chefs</strong> pour une expérience gustative exceptionnelle :
           </p>
           
-          <!-- Zone vidéo YouTube -->
           <div class="video-container">
             <iframe id="cuissonVideo" width="100%" height="315" src="https://www.youtube.com/embed/s0PhDVyAYRc?si=BUwvvipwHt0k3vIQ" frameborder="0" allow="clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
@@ -584,7 +582,6 @@
 </div>
 
 <script>
-  // Simulation de réponse serveur
   const fakeApiResponse = {
     qrId: "QR-058",
     lot: "VAGUE-2025-07",
@@ -592,7 +589,7 @@
     dlc: "25/08/2025",
     infoSupp: "Votre information ici",
     type: "Poulet de Chair entier",
-    prix: "3500 FCFA",
+    prix: "3000 FCFA",
     poids: "2.5 kg",
     origine: "Côte d'Ivoire - Oumé",
     certification: "Les Fermes Ivoires",
@@ -604,12 +601,9 @@
     conservation: "Entre 0°C et +4°C",
     temperature: "Chaîne du froid respectée",
     lastUpdate: "26/12/2025 10:45:12",
-    // Vidéos à charger selon le statut
     videos: {
       conservation: "g6b7aGmtS9k?si=u6R80Yw0xtiJCstn",
-      cuisson: "s0PhDVyAYRc?si=BUwvvipwHt0k3vIQ",
-      engagement: "g6b7aGmtS9k?si=u6R80Yw0xtiJCstn",
-      service: "g6b7aGmtS9k?si=u6R80Yw0xtiJCstn"
+      cuisson: "s0PhDVyAYRc?si=BUwvvipwHt0k3vIQ"
     }
   };
 
@@ -635,19 +629,15 @@
     const statutBox = document.getElementById("statutBox");
     const venteInfo = document.getElementById("venteInfo");
 
-    // Charger les vidéos selon le statut
+    // Charger les vidéos (seulement conservation et cuisson)
     if (data.videos) {
-      if (data.videos.conservation) {
-        document.getElementById("conservationVideo").src = "https://www.youtube.com/embed/" + data.videos.conservation;
+      const conservationEl = document.getElementById("conservationVideo");
+      if (data.videos.conservation && conservationEl) {
+        conservationEl.src = "https://www.youtube.com/embed/" + data.videos.conservation;
       }
-      if (data.videos.cuisson) {
-        document.getElementById("cuissonVideo").src = "https://www.youtube.com/embed/" + data.videos.cuisson;
-      }
-      if (data.videos.engagement) {
-        document.getElementById("engagementVideo").src = "https://www.youtube.com/embed/" + data.videos.engagement;
-      }
-      if (data.videos.service) {
-        document.getElementById("serviceVideo").src = "https://www.youtube.com/embed/" + data.videos.service;
+      const cuissonEl = document.getElementById("cuissonVideo");
+      if (data.videos.cuisson && cuissonEl) {
+        cuissonEl.src = "https://www.youtube.com/embed/" + data.videos.cuisson;
       }
     }
 
@@ -660,11 +650,11 @@
     }
 
     if (data.statut === "VENDU") {
-      banner.textContent = "PRODUIT DEJA VENDU";
-      banner.className = "status-banner status-sold";
-      document.getElementById("statut").textContent = "VENDU - " + data.dateVente;
-      statutBox.style.borderColor = "#FFC107";
-      statutBox.style.background = "#FFF9C4";
+      banner.textContent = "✓ PRODUIT EN STOCK";
+      banner.className = "status-banner status-ok";
+      document.getElementById("statut").textContent = "DISPONIBLE EN STOCK";
+      statutBox.style.borderColor = "#4CAF50";
+      statutBox.style.background = "#E8F5E9";
       venteInfo.style.display = "flex";
       document.getElementById("dateVente").textContent = data.dateVente;
     }
@@ -686,7 +676,6 @@
     }
   }
 
-  // Simulation chargement
   setTimeout(() => {
     render(fakeApiResponse);
   }, 600);
