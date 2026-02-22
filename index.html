@@ -471,7 +471,7 @@
           
           <!-- Zone vidéo YouTube -->
           <div class="video-container">
-            <iframe id="conservationVideo" width="100%" height="315" src="https://www.youtube.com" frameborder="0" allow="clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe id="conservationVideo" width="100%" height="315" src="https://www.youtube.com/embed/g6b7aGmtS9k?si=u6R80Yw0xtiJCstn" frameborder="0" allow="clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
           
           <p>Pour préserver l'intégrité nutritionnelle et la saveur de la chair :</p>
@@ -499,7 +499,7 @@
           
           <!-- Zone vidéo YouTube -->
           <div class="video-container">
-            <iframe id="cuissonVideo" width="100%" height="315" src="https://www." frameborder="0" allow="clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe id="cuissonVideo" width="100%" height="315" src="https://www.youtube.com/embed/g6b7aGmtS9k?si=u6R80Yw0xtiJCstn" frameborder="0" allow="clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
           
           <div class="technique-step">
@@ -531,7 +531,7 @@
           
           <!-- Zone vidéo YouTube -->
           <div class="video-container">
-            <iframe id="engagementVideo" width="100%" height="315" src="https:" frameborder="0" allow="clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe id="engagementVideo" width="100%" height="315" src="https://www.youtube.com/embed/g6b7aGmtS9k?si=u6R80Yw0xtiJCstn" frameborder="0" allow="clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
           
           <div>
@@ -560,7 +560,7 @@
           
           <!-- Zone vidéo YouTube -->
           <div class="video-container">
-            <iframe id="serviceVideo" width="100%" height="315" src="https://www." frameborder="0" allow="clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe id="serviceVideo" width="100%" height="315" src="https://www.youtube.com/embed/g6b7aGmtS9k?si=u6R80Yw0xtiJCstn" frameborder="0" allow="clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
           
           <p style="margin-bottom: 10px;">
@@ -605,22 +605,12 @@
     lastUpdate: "26/12/2025 10:45:12",
     // Vidéos à charger selon le statut
     videos: {
-      conservation: "dQw4w9WgXcQ",  // Remplacer par l'ID YouTube
-      cuisson: "dQw4w9WgXcQ",       // Remplacer par l'ID YouTube
-      engagement: "dQw4w9WgXcQ",    // Remplacer par l'ID YouTube
-      service: "dQw4w9WgXcQ"        // Remplacer par l'ID YouTube
+      conservation: "g6b7aGmtS9k?si=u6R80Yw0xtiJCstn",
+      cuisson: "g6b7aGmtS9k?si=u6R80Yw0xtiJCstn",
+      engagement: "g6b7aGmtS9k?si=u6R80Yw0xtiJCstn",
+      service: "g6b7aGmtS9k?si=u6R80Yw0xtiJCstn"
     }
   };
-
-  // Exemples de configuration selon le statut
-  // Pour VENDU :
-  // videos: { conservation: "abc123", cuisson: "def456", engagement: "ghi789", service: "jkl012" }
-  
-  // Pour EXPIRE :
-  // videos: { conservation: "xyz789", cuisson: "uvw456", engagement: "rst123", service: "opq999" }
-  
-  // Pour FAKE :
-  // videos: { conservation: "fake01", cuisson: "fake02", engagement: "fake03", service: "fake04" }
 
   function render(data) {
     document.getElementById("qrId").textContent = data.qrId;
@@ -703,5 +693,3 @@
 
 </body>
 </html>
-
-
